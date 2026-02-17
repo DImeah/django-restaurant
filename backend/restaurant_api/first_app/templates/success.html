@@ -1,0 +1,39 @@
+<body
+  style="
+    font-family: Arial;
+    background: #eaf3ff;
+    text-align: center;
+    padding-top: 120px;
+  "
+>
+  <div
+    style="
+      background: white;
+      padding: 40px;
+      border-radius: 12px;
+      width: 420px;
+      margin: auto;
+    "
+  >
+    <h2 style="color: #0b5ed7">Reservation Confirmed</h2>
+
+    {% for message in messages %}
+    <p style="color: green; font-weight: bold">{{ message }}</p>
+    {% endfor %}
+
+    <br />
+    <a href="{% url 'reserve' %}">
+      <button
+        style="
+          padding: 12px 20px;
+          background: #0b5ed7;
+          color: white;
+          border: none;
+          border-radius: 8px;
+        "
+      >
+        Book Another Table
+      </button>
+    </a>
+  </div>
+</body>

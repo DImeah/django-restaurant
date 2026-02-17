@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Reservation</title>
+  </head>
+
+  <body style="margin: 0; background: #eaf3ff; font-family: Arial">
+    <div
+      style="
+        width: 430px;
+        margin: 60px auto;
+        background: white;
+        padding: 30px;
+        border-radius: 12px;
+        border-top: 6px solid #0b5ed7;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      "
+    >
+      <h2 style="text-align: center; color: #0b5ed7">Restaurant Reservation</h2>
+
+      {% if messages %} {% for message in messages %}
+      <div
+        style="
+          background-color: #dbeafe;
+          color: #1e3a8a;
+          padding: 14px;
+          border-radius: 10px;
+          margin-bottom: 15px;
+          border: 1px solid #93c5fd;
+          font-weight: bold;
+        "
+      >
+        {{ message }}
+      </div>
+      {% endfor %} {% endif %}
+      <form method="POST">
+        {% csrf_token %}
+        <!-- {{ form.as_p}} -->
+
+        <label style="color: #0b5ed7; font-weight: bold">First Name</label>
+        {{ form.first_name }}
+
+        <label style="color: #0b5ed7; font-weight: bold">Last Name</label>
+        {{ form.last_name }}
+
+        <label style="color: #0b5ed7; font-weight: bold"
+          >Number of Guests</label
+        >
+        {{ form.guest_count }}
+
+        <label style="color: #0b5ed7; font-weight: bold">Comments</label>
+        {{ form.comments }}
+
+        <br /><br />
+
+        <button
+          type="submit"
+          style="
+            width: 100%;
+            padding: 12px;
+            background: #0b5ed7;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+          "
+          onmouseover="this.style.background = '#084298'"
+          onmouseout="this.style.background = '#0b5ed7'"
+        >
+          Reserve Table
+        </button>
+      </form>
+    </div>
+  </body>
+</html>
